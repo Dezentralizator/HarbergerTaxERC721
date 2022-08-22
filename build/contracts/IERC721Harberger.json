@@ -1,0 +1,2088 @@
+{
+  "contractName": "IERC721Harberger",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_claimer",
+          "type": "address"
+        }
+      ],
+      "name": "Claimed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint96",
+          "name": "price",
+          "type": "uint96"
+        }
+      ],
+      "name": "NewHarbergerPrice",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "claim",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint96",
+          "name": "price",
+          "type": "uint96"
+        }
+      ],
+      "name": "claimAndSetPrice",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint96",
+          "name": "price",
+          "type": "uint96"
+        }
+      ],
+      "name": "setTokenPrice",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getHarbergerInfo",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        },
+        {
+          "internalType": "uint96",
+          "name": "",
+          "type": "uint96"
+        },
+        {
+          "internalType": "uint96",
+          "name": "",
+          "type": "uint96"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getHarbergerTax",
+      "outputs": [
+        {
+          "internalType": "uint96",
+          "name": "",
+          "type": "uint96"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getHarbergerPrice",
+      "outputs": [
+        {
+          "internalType": "uint96",
+          "name": "",
+          "type": "uint96"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "remainingTax",
+      "outputs": [
+        {
+          "internalType": "uint96",
+          "name": "openTax",
+          "type": "uint96"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.11+commit.d7f03943\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_claimer\",\"type\":\"address\"}],\"name\":\"Claimed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint96\",\"name\":\"price\",\"type\":\"uint96\"}],\"name\":\"NewHarbergerPrice\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"claim\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"uint96\",\"name\":\"price\",\"type\":\"uint96\"}],\"name\":\"claimAndSetPrice\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getHarbergerInfo\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"},{\"internalType\":\"uint96\",\"name\":\"\",\"type\":\"uint96\"},{\"internalType\":\"uint96\",\"name\":\"\",\"type\":\"uint96\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getHarbergerPrice\",\"outputs\":[{\"internalType\":\"uint96\",\"name\":\"\",\"type\":\"uint96\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getHarbergerTax\",\"outputs\":[{\"internalType\":\"uint96\",\"name\":\"\",\"type\":\"uint96\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"remainingTax\",\"outputs\":[{\"internalType\":\"uint96\",\"name\":\"openTax\",\"type\":\"uint96\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"uint96\",\"name\":\"price\",\"type\":\"uint96\"}],\"name\":\"setTokenPrice\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Dezentralizator\",\"kind\":\"dev\",\"methods\":{\"claim(uint256)\":{\"details\":\"the famous Haberger transfer, allows anyone to claim the NFT at its listed price.\"},\"claimAndSetPrice(uint256,uint96)\":{\"details\":\"Haberger transfer allowing to choose reset price\"},\"getHarbergerPrice(uint256)\":{\"details\":\"returns the total price needed to activate a transfer\"},\"getHarbergerTax(uint256)\":{\"details\":\"allows to easily fetch information about the previous tax accumulated\"},\"remainingTax(uint256)\":{\"details\":\"returns the tax caused by ongoing pricing period.\"},\"setTokenPrice(uint256,uint96)\":{\"details\":\"sets the price of token at which anyone can buy the NFT\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"An example of interface to use as Harberger Tax \",\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IERC721Harberger.sol\":\"IERC721Harberger\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/IERC721Harberger.sol\":{\"keccak256\":\"0x3145870b314836aa9bd65c31260612bc616516fe970353140247b3255bbbd895\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a5325110fefa991111aa8ffc9ff931781cb095a3ac4fd87ed47fb1933216b206\",\"dweb:/ipfs/Qmb7htuLqY6ZpBgKi2KUSiE5LFb6MwifaMp7bwSjVk3bKU\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n/**\n@author Dezentralizator\n@notice An example of interface to use as Harberger Tax */\n\ninterface IERC721Harberger {\n\n  struct HarbergerTax{\n    uint64 lastChange;\n    uint96 currentPrice;\n    uint96 accumulatedTax;\n  }\n\n  event Claimed(uint256 tokenId, address _claimer);\n\n  event NewHarbergerPrice(uint256 tokenId, uint96 price);\n\n  /**\n  @dev the famous Haberger transfer, allows anyone to claim the NFT at its listed price.\n  */\n  function claim(uint256 tokenId) external payable;\n\n  /**\n  @dev Haberger transfer allowing to choose reset price\n  */\n  function claimAndSetPrice(uint256 tokenId, uint96 price) external payable;\n\n  /** \n  @dev sets the price of token at which anyone can buy the NFT\n  */\n  function setTokenPrice(uint256 tokenId, uint96 price) external;\n\n  function getHarbergerInfo(uint256 tokenId) external view returns(uint64,uint96,uint96);\n  /**\n  @dev allows to easily fetch information about the previous tax accumulated\n  */\n  function getHarbergerTax(uint256 tokenId) external view returns (uint96);\n\n  /**\n  @dev returns the total price needed to activate a transfer\n   */\n  function getHarbergerPrice(uint256 tokenId) external view returns (uint96);\n\n   /**\n  @dev returns the tax caused by ongoing pricing period.\n  */\n  function remainingTax(uint256 tokenId) external view returns (uint96 openTax);\n\n\n\n}\n",
+  "sourcePath": "/Users/admin/Desktop/GeneralCoding/HabergerTax/contracts/IERC721Harberger.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/IERC721Harberger.sol",
+    "exportedSymbols": {
+      "IERC721Harberger": [
+        2193
+      ]
+    },
+    "id": 2194,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2115,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:32:9"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IERC721Harberger",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 2116,
+          "nodeType": "StructuredDocumentation",
+          "src": "65:86:9",
+          "text": "@author Dezentralizator\n@notice An example of interface to use as Harberger Tax "
+        },
+        "fullyImplemented": false,
+        "id": 2193,
+        "linearizedBaseContracts": [
+          2193
+        ],
+        "name": "IERC721Harberger",
+        "nameLocation": "163:16:9",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "IERC721Harberger.HarbergerTax",
+            "id": 2123,
+            "members": [
+              {
+                "constant": false,
+                "id": 2118,
+                "mutability": "mutable",
+                "name": "lastChange",
+                "nameLocation": "217:10:9",
+                "nodeType": "VariableDeclaration",
+                "scope": 2123,
+                "src": "210:17:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint64",
+                  "typeString": "uint64"
+                },
+                "typeName": {
+                  "id": 2117,
+                  "name": "uint64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "210:6:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2120,
+                "mutability": "mutable",
+                "name": "currentPrice",
+                "nameLocation": "240:12:9",
+                "nodeType": "VariableDeclaration",
+                "scope": 2123,
+                "src": "233:19:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint96",
+                  "typeString": "uint96"
+                },
+                "typeName": {
+                  "id": 2119,
+                  "name": "uint96",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "233:6:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2122,
+                "mutability": "mutable",
+                "name": "accumulatedTax",
+                "nameLocation": "265:14:9",
+                "nodeType": "VariableDeclaration",
+                "scope": 2123,
+                "src": "258:21:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint96",
+                  "typeString": "uint96"
+                },
+                "typeName": {
+                  "id": 2121,
+                  "name": "uint96",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "258:6:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "HarbergerTax",
+            "nameLocation": "192:12:9",
+            "nodeType": "StructDefinition",
+            "scope": 2193,
+            "src": "185:99:9",
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "id": 2129,
+            "name": "Claimed",
+            "nameLocation": "294:7:9",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 2128,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2125,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "310:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2129,
+                  "src": "302:15:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2124,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "302:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2127,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "_claimer",
+                  "nameLocation": "327:8:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2129,
+                  "src": "319:16:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2126,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "319:7:9",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "301:35:9"
+            },
+            "src": "288:49:9"
+          },
+          {
+            "anonymous": false,
+            "id": 2135,
+            "name": "NewHarbergerPrice",
+            "nameLocation": "347:17:9",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 2134,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2131,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "373:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2135,
+                  "src": "365:15:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2130,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "365:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2133,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "price",
+                  "nameLocation": "389:5:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2135,
+                  "src": "382:12:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  },
+                  "typeName": {
+                    "id": 2132,
+                    "name": "uint96",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "382:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint96",
+                      "typeString": "uint96"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "364:31:9"
+            },
+            "src": "341:55:9"
+          },
+          {
+            "documentation": {
+              "id": 2136,
+              "nodeType": "StructuredDocumentation",
+              "src": "400:97:9",
+              "text": "@dev the famous Haberger transfer, allows anyone to claim the NFT at its listed price."
+            },
+            "functionSelector": "379607f5",
+            "id": 2141,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "claim",
+            "nameLocation": "509:5:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2139,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2138,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "523:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2141,
+                  "src": "515:15:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2137,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "515:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "514:17:9"
+            },
+            "returnParameters": {
+              "id": 2140,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "548:0:9"
+            },
+            "scope": 2193,
+            "src": "500:49:9",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2142,
+              "nodeType": "StructuredDocumentation",
+              "src": "553:64:9",
+              "text": "@dev Haberger transfer allowing to choose reset price"
+            },
+            "functionSelector": "2dc72ae3",
+            "id": 2149,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "claimAndSetPrice",
+            "nameLocation": "629:16:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2147,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2144,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "654:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2149,
+                  "src": "646:15:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2143,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "646:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2146,
+                  "mutability": "mutable",
+                  "name": "price",
+                  "nameLocation": "670:5:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2149,
+                  "src": "663:12:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  },
+                  "typeName": {
+                    "id": 2145,
+                    "name": "uint96",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "663:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint96",
+                      "typeString": "uint96"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "645:31:9"
+            },
+            "returnParameters": {
+              "id": 2148,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "693:0:9"
+            },
+            "scope": 2193,
+            "src": "620:74:9",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2150,
+              "nodeType": "StructuredDocumentation",
+              "src": "698:72:9",
+              "text": "@dev sets the price of token at which anyone can buy the NFT"
+            },
+            "functionSelector": "ec084b98",
+            "id": 2157,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setTokenPrice",
+            "nameLocation": "782:13:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2155,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2152,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "804:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2157,
+                  "src": "796:15:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2151,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "796:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2154,
+                  "mutability": "mutable",
+                  "name": "price",
+                  "nameLocation": "820:5:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2157,
+                  "src": "813:12:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  },
+                  "typeName": {
+                    "id": 2153,
+                    "name": "uint96",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "813:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint96",
+                      "typeString": "uint96"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "795:31:9"
+            },
+            "returnParameters": {
+              "id": 2156,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "835:0:9"
+            },
+            "scope": 2193,
+            "src": "773:63:9",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "dcbf5a00",
+            "id": 2168,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getHarbergerInfo",
+            "nameLocation": "849:16:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2160,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2159,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "874:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2168,
+                  "src": "866:15:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2158,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "866:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "865:17:9"
+            },
+            "returnParameters": {
+              "id": 2167,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2162,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2168,
+                  "src": "905:6:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  },
+                  "typeName": {
+                    "id": 2161,
+                    "name": "uint64",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "905:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2164,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2168,
+                  "src": "912:6:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  },
+                  "typeName": {
+                    "id": 2163,
+                    "name": "uint96",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "912:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint96",
+                      "typeString": "uint96"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2166,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2168,
+                  "src": "919:6:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  },
+                  "typeName": {
+                    "id": 2165,
+                    "name": "uint96",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "919:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint96",
+                      "typeString": "uint96"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "904:22:9"
+            },
+            "scope": 2193,
+            "src": "840:87:9",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2169,
+              "nodeType": "StructuredDocumentation",
+              "src": "930:85:9",
+              "text": "@dev allows to easily fetch information about the previous tax accumulated"
+            },
+            "functionSelector": "a2b8f731",
+            "id": 2176,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getHarbergerTax",
+            "nameLocation": "1027:15:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2172,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2171,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "1051:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2176,
+                  "src": "1043:15:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2170,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1043:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1042:17:9"
+            },
+            "returnParameters": {
+              "id": 2175,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2174,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2176,
+                  "src": "1083:6:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  },
+                  "typeName": {
+                    "id": 2173,
+                    "name": "uint96",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1083:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint96",
+                      "typeString": "uint96"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1082:8:9"
+            },
+            "scope": 2193,
+            "src": "1018:73:9",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2177,
+              "nodeType": "StructuredDocumentation",
+              "src": "1095:70:9",
+              "text": "@dev returns the total price needed to activate a transfer"
+            },
+            "functionSelector": "08356f50",
+            "id": 2184,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getHarbergerPrice",
+            "nameLocation": "1177:17:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2180,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2179,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "1203:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2184,
+                  "src": "1195:15:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2178,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1195:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1194:17:9"
+            },
+            "returnParameters": {
+              "id": 2183,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2182,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2184,
+                  "src": "1235:6:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  },
+                  "typeName": {
+                    "id": 2181,
+                    "name": "uint96",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1235:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint96",
+                      "typeString": "uint96"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1234:8:9"
+            },
+            "scope": 2193,
+            "src": "1168:75:9",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2185,
+              "nodeType": "StructuredDocumentation",
+              "src": "1248:65:9",
+              "text": "@dev returns the tax caused by ongoing pricing period."
+            },
+            "functionSelector": "e3b0e6b0",
+            "id": 2192,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "remainingTax",
+            "nameLocation": "1325:12:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2188,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2187,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "1346:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2192,
+                  "src": "1338:15:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2186,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1338:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1337:17:9"
+            },
+            "returnParameters": {
+              "id": 2191,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2190,
+                  "mutability": "mutable",
+                  "name": "openTax",
+                  "nameLocation": "1385:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2192,
+                  "src": "1378:14:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  },
+                  "typeName": {
+                    "id": 2189,
+                    "name": "uint96",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1378:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint96",
+                      "typeString": "uint96"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1377:16:9"
+            },
+            "scope": 2193,
+            "src": "1316:78:9",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 2194,
+        "src": "153:1246:9",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:1368:9"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/IERC721Harberger.sol",
+    "exportedSymbols": {
+      "IERC721Harberger": [
+        2193
+      ]
+    },
+    "id": 2194,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2115,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:32:9"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IERC721Harberger",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 2116,
+          "nodeType": "StructuredDocumentation",
+          "src": "65:86:9",
+          "text": "@author Dezentralizator\n@notice An example of interface to use as Harberger Tax "
+        },
+        "fullyImplemented": false,
+        "id": 2193,
+        "linearizedBaseContracts": [
+          2193
+        ],
+        "name": "IERC721Harberger",
+        "nameLocation": "163:16:9",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "IERC721Harberger.HarbergerTax",
+            "id": 2123,
+            "members": [
+              {
+                "constant": false,
+                "id": 2118,
+                "mutability": "mutable",
+                "name": "lastChange",
+                "nameLocation": "217:10:9",
+                "nodeType": "VariableDeclaration",
+                "scope": 2123,
+                "src": "210:17:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint64",
+                  "typeString": "uint64"
+                },
+                "typeName": {
+                  "id": 2117,
+                  "name": "uint64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "210:6:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2120,
+                "mutability": "mutable",
+                "name": "currentPrice",
+                "nameLocation": "240:12:9",
+                "nodeType": "VariableDeclaration",
+                "scope": 2123,
+                "src": "233:19:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint96",
+                  "typeString": "uint96"
+                },
+                "typeName": {
+                  "id": 2119,
+                  "name": "uint96",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "233:6:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2122,
+                "mutability": "mutable",
+                "name": "accumulatedTax",
+                "nameLocation": "265:14:9",
+                "nodeType": "VariableDeclaration",
+                "scope": 2123,
+                "src": "258:21:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint96",
+                  "typeString": "uint96"
+                },
+                "typeName": {
+                  "id": 2121,
+                  "name": "uint96",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "258:6:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "HarbergerTax",
+            "nameLocation": "192:12:9",
+            "nodeType": "StructDefinition",
+            "scope": 2193,
+            "src": "185:99:9",
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "id": 2129,
+            "name": "Claimed",
+            "nameLocation": "294:7:9",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 2128,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2125,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "310:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2129,
+                  "src": "302:15:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2124,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "302:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2127,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "_claimer",
+                  "nameLocation": "327:8:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2129,
+                  "src": "319:16:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2126,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "319:7:9",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "301:35:9"
+            },
+            "src": "288:49:9"
+          },
+          {
+            "anonymous": false,
+            "id": 2135,
+            "name": "NewHarbergerPrice",
+            "nameLocation": "347:17:9",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 2134,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2131,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "373:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2135,
+                  "src": "365:15:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2130,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "365:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2133,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "price",
+                  "nameLocation": "389:5:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2135,
+                  "src": "382:12:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  },
+                  "typeName": {
+                    "id": 2132,
+                    "name": "uint96",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "382:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint96",
+                      "typeString": "uint96"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "364:31:9"
+            },
+            "src": "341:55:9"
+          },
+          {
+            "documentation": {
+              "id": 2136,
+              "nodeType": "StructuredDocumentation",
+              "src": "400:97:9",
+              "text": "@dev the famous Haberger transfer, allows anyone to claim the NFT at its listed price."
+            },
+            "functionSelector": "379607f5",
+            "id": 2141,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "claim",
+            "nameLocation": "509:5:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2139,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2138,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "523:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2141,
+                  "src": "515:15:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2137,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "515:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "514:17:9"
+            },
+            "returnParameters": {
+              "id": 2140,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "548:0:9"
+            },
+            "scope": 2193,
+            "src": "500:49:9",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2142,
+              "nodeType": "StructuredDocumentation",
+              "src": "553:64:9",
+              "text": "@dev Haberger transfer allowing to choose reset price"
+            },
+            "functionSelector": "2dc72ae3",
+            "id": 2149,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "claimAndSetPrice",
+            "nameLocation": "629:16:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2147,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2144,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "654:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2149,
+                  "src": "646:15:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2143,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "646:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2146,
+                  "mutability": "mutable",
+                  "name": "price",
+                  "nameLocation": "670:5:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2149,
+                  "src": "663:12:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  },
+                  "typeName": {
+                    "id": 2145,
+                    "name": "uint96",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "663:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint96",
+                      "typeString": "uint96"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "645:31:9"
+            },
+            "returnParameters": {
+              "id": 2148,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "693:0:9"
+            },
+            "scope": 2193,
+            "src": "620:74:9",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2150,
+              "nodeType": "StructuredDocumentation",
+              "src": "698:72:9",
+              "text": "@dev sets the price of token at which anyone can buy the NFT"
+            },
+            "functionSelector": "ec084b98",
+            "id": 2157,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setTokenPrice",
+            "nameLocation": "782:13:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2155,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2152,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "804:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2157,
+                  "src": "796:15:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2151,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "796:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2154,
+                  "mutability": "mutable",
+                  "name": "price",
+                  "nameLocation": "820:5:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2157,
+                  "src": "813:12:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  },
+                  "typeName": {
+                    "id": 2153,
+                    "name": "uint96",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "813:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint96",
+                      "typeString": "uint96"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "795:31:9"
+            },
+            "returnParameters": {
+              "id": 2156,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "835:0:9"
+            },
+            "scope": 2193,
+            "src": "773:63:9",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "dcbf5a00",
+            "id": 2168,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getHarbergerInfo",
+            "nameLocation": "849:16:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2160,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2159,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "874:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2168,
+                  "src": "866:15:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2158,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "866:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "865:17:9"
+            },
+            "returnParameters": {
+              "id": 2167,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2162,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2168,
+                  "src": "905:6:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  },
+                  "typeName": {
+                    "id": 2161,
+                    "name": "uint64",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "905:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2164,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2168,
+                  "src": "912:6:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  },
+                  "typeName": {
+                    "id": 2163,
+                    "name": "uint96",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "912:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint96",
+                      "typeString": "uint96"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2166,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2168,
+                  "src": "919:6:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  },
+                  "typeName": {
+                    "id": 2165,
+                    "name": "uint96",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "919:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint96",
+                      "typeString": "uint96"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "904:22:9"
+            },
+            "scope": 2193,
+            "src": "840:87:9",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2169,
+              "nodeType": "StructuredDocumentation",
+              "src": "930:85:9",
+              "text": "@dev allows to easily fetch information about the previous tax accumulated"
+            },
+            "functionSelector": "a2b8f731",
+            "id": 2176,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getHarbergerTax",
+            "nameLocation": "1027:15:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2172,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2171,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "1051:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2176,
+                  "src": "1043:15:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2170,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1043:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1042:17:9"
+            },
+            "returnParameters": {
+              "id": 2175,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2174,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2176,
+                  "src": "1083:6:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  },
+                  "typeName": {
+                    "id": 2173,
+                    "name": "uint96",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1083:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint96",
+                      "typeString": "uint96"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1082:8:9"
+            },
+            "scope": 2193,
+            "src": "1018:73:9",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2177,
+              "nodeType": "StructuredDocumentation",
+              "src": "1095:70:9",
+              "text": "@dev returns the total price needed to activate a transfer"
+            },
+            "functionSelector": "08356f50",
+            "id": 2184,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getHarbergerPrice",
+            "nameLocation": "1177:17:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2180,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2179,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "1203:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2184,
+                  "src": "1195:15:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2178,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1195:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1194:17:9"
+            },
+            "returnParameters": {
+              "id": 2183,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2182,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2184,
+                  "src": "1235:6:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  },
+                  "typeName": {
+                    "id": 2181,
+                    "name": "uint96",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1235:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint96",
+                      "typeString": "uint96"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1234:8:9"
+            },
+            "scope": 2193,
+            "src": "1168:75:9",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2185,
+              "nodeType": "StructuredDocumentation",
+              "src": "1248:65:9",
+              "text": "@dev returns the tax caused by ongoing pricing period."
+            },
+            "functionSelector": "e3b0e6b0",
+            "id": 2192,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "remainingTax",
+            "nameLocation": "1325:12:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2188,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2187,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "1346:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2192,
+                  "src": "1338:15:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2186,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1338:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1337:17:9"
+            },
+            "returnParameters": {
+              "id": 2191,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2190,
+                  "mutability": "mutable",
+                  "name": "openTax",
+                  "nameLocation": "1385:7:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2192,
+                  "src": "1378:14:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint96",
+                    "typeString": "uint96"
+                  },
+                  "typeName": {
+                    "id": 2189,
+                    "name": "uint96",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1378:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint96",
+                      "typeString": "uint96"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1377:16:9"
+            },
+            "scope": 2193,
+            "src": "1316:78:9",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 2194,
+        "src": "153:1246:9",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:1368:9"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.11+commit.d7f03943.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.5",
+  "updatedAt": "2022-08-21T11:22:00.982Z",
+  "devdoc": {
+    "author": "Dezentralizator",
+    "kind": "dev",
+    "methods": {
+      "claim(uint256)": {
+        "details": "the famous Haberger transfer, allows anyone to claim the NFT at its listed price."
+      },
+      "claimAndSetPrice(uint256,uint96)": {
+        "details": "Haberger transfer allowing to choose reset price"
+      },
+      "getHarbergerPrice(uint256)": {
+        "details": "returns the total price needed to activate a transfer"
+      },
+      "getHarbergerTax(uint256)": {
+        "details": "allows to easily fetch information about the previous tax accumulated"
+      },
+      "remainingTax(uint256)": {
+        "details": "returns the tax caused by ongoing pricing period."
+      },
+      "setTokenPrice(uint256,uint96)": {
+        "details": "sets the price of token at which anyone can buy the NFT"
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "notice": "An example of interface to use as Harberger Tax ",
+    "version": 1
+  }
+}
